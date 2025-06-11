@@ -1,0 +1,59 @@
+@use "../shared/styles/variables" as *;
+
+header {
+  width: 100%;
+  height: $header-height;
+  background-color: $bg-dark;
+  border-bottom: 1px solid $txt-color;
+  padding: 0 3rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  @include flex-row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+img {
+  @include site-logo;
+
+  @include sm-dev {
+    height: 48px;
+    width: 48px;
+  }
+}
+
+nav {
+  font-family: $title-font;
+  font-size: 2rem;
+
+  @include sm-dev {
+    font-size: 1.3rem;
+  }
+
+  ul {
+    display: block;
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin: 0;
+  }
+
+  li {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+
+    @include sm-dev {
+      padding: 0.5rem;
+    }
+
+    &:hover {
+      border-bottom: 3px solid;
+    }
+  }
+}
+
+.active {
+  font-weight: bold;
+}

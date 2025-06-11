@@ -1,0 +1,34 @@
+@use "../shared/styles/variables" as *;
+
+#banner {
+  @include flex-column;
+  justify-content: center;
+  height: calc(100vh - $header-height);
+
+  .banner-text-container {
+    padding: 0;
+    text-align: center;
+
+    p {
+      margin: 0 0 8px 0;
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+
+      @include sm-dev {
+        font-size: 1rem;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+#featuredProjects {
+  div {
+    @include flex-row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem 0;
+    gap: 3rem;
+  }
+}

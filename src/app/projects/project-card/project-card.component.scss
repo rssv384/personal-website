@@ -1,0 +1,55 @@
+@use "../../shared/styles/variables" as *;
+
+.card {
+  width: 350px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+}
+.project-img {
+  width: 100%;
+
+  img {
+    width: 100%;
+    aspect-ratio: 5 / 3;
+  }
+}
+
+.links,
+.tags {
+  width: 100%;
+}
+
+.links {
+  @include flex-row;
+  font-weight: 500;
+  font-size: 0.9rem;
+  gap: 2rem;
+
+  a:hover {
+    font-weight: 700;
+    text-decoration: underline;
+  }
+}
+
+.tags {
+  margin-top: 1rem;
+
+  ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+
+  li {
+    font-size: 0.7rem;
+    text-align: center;
+    padding: 0.5rem;
+    border: 1px solid grey;
+    background-color: #272727;
+    border-radius: 18px;
+  }
+}

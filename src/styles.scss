@@ -1,1 +1,112 @@
-/* You can add global styles to this file, and also import other style files */
+@use "app/shared/styles/variables" as *;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: $body-font;
+  background-color: $bg-dark;
+  color: $txt-color;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin-top: $header-height;
+  min-height: $main-min-height;
+}
+
+section {
+  @include flex-column;
+  width: 100%;
+  padding: 2.5rem 5rem;
+  align-items: center;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $title-font;
+  margin: 0;
+}
+
+h1 {
+  font-size: 20rem;
+  font-weight: 400;
+
+  @include sm-dev {
+    font-size: 10rem;
+  }
+
+  @include md-dev {
+    font-size: 16rem;
+  }
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1rem;
+
+  @include md-dev {
+    font-size: 0.9rem;
+  }
+
+  @include sm-dev {
+    font-size: 0.7rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $txt-color;
+  cursor: pointer;
+}
+
+button {
+  border-radius: 6px;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  margin-top: 1.5rem;
+  cursor: pointer;
+
+  &.solid {
+    background-color: $txt-color;
+    color: $bg-dark;
+
+    &:hover {
+      background-color: transparent;
+      border: 1px solid $txt-color;
+      color: $txt-color;
+    }
+  }
+
+  &.transparent {
+    background-color: transparent;
+    border: 1px solid $txt-color;
+    color: $txt-color;
+
+    &:hover {
+      background-color: $txt-color;
+      color: $bg-dark;
+    }
+  }
+}

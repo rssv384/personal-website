@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+$bg-dark: #171717;
+$txt-color: #ededed;
+$title-font: "Instrument Serif", serif;
+$body-font: "Montserrat", sans-serif;
+$header-height: 10vh;
+$main-min-height: 90vh;
+
+@mixin sm-dev {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+@mixin md-dev {
+  @media (min-width: 768px) and (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin site-logo {
+  width: 64px;
+  // min-width: 32px;
+  max-width: 64px;
+  height: 64px;
+  // min-height: 32px;
+  max-height: 64px;
+}
