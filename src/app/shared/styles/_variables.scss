@@ -30,9 +30,21 @@ $main-min-height: 90vh;
 
 @mixin site-logo {
   width: 64px;
-  // min-width: 32px;
   max-width: 64px;
   height: 64px;
-  // min-height: 32px;
   max-height: 64px;
+}
+
+@mixin list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+@mixin list-item {
+  text-align: center;
+  padding: 0.5rem;
+  border: 1px solid grey;
+  border-radius: 10px;
 }
