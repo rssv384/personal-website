@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   FormArray,
   FormControl,
@@ -29,10 +29,6 @@ export class ContactFormComponent {
       return;
     }
     console.log(this.contactForm);
-  }
-
-  // Handles form resetting
-  onReset() {
     this.contactForm.reset();
   }
 }
