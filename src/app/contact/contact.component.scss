@@ -2,6 +2,8 @@
 
 section {
   @include flex-column;
+  justify-content: center;
+  height: $main-min-height;
 }
 
 .contact {
@@ -11,8 +13,8 @@ section {
 
   @include sm-dev {
     @include flex-column;
-    align-items: center;
     gap: 3rem;
+    align-items: center;
 
     & * {
       width: 100%;
@@ -21,11 +23,11 @@ section {
 }
 
 .form {
-  width: 50%;
+  width: 60%;
 }
 
 .contact-info {
-  width: 40%;
+  width: 30%;
   margin-top: 1rem;
 
   .socials-row {
