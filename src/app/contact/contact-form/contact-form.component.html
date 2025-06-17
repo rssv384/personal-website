@@ -24,3 +24,10 @@
     </button>
   </div>
 </form>
+
+@if (isDialogVisible()) {
+  <dialog open>
+    <p class="dialog-title">{{ dialogTitle }}</p>
+    <p class="dialog-message">{{ dialogMessage }}</p>
+  </dialog>
+}
