@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ProjectCardComponent } from '../projects/project-card/project-card.component';
+import { Project } from '../projects/project.model';
+import { ProjectsService } from '../projects/projects.service';
 
 @Component({
   selector: 'app-homepage',
@@ -8,4 +10,7 @@ import { ProjectCardComponent } from '../projects/project-card/project-card.comp
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss',
 })
-export class HomepageComponent {}
+export class HomepageComponent {
+  private projectsService = inject(ProjectsService);
+  featuredProjects = this.projectsService.featuredProjects;
+}

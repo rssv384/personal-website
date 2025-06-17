@@ -5,6 +5,10 @@
   border: 1px solid grey;
   border-radius: 10px;
   padding: 1rem 2rem;
+
+  @include md-dev {
+    width: 250px;
+  }
 }
 .project-img {
   width: 100%;

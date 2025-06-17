@@ -1,0 +1,15 @@
+@use "../shared/styles/variables" as *;
+
+.main-container {
+  @include flex-column;
+  align-items: center;
+}
+
+.section-headings {
+  text-align: center;
+  width: 60%;
+}
+
+.projects-container {
+  @include projects-list;
+}

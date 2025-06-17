@@ -48,3 +48,11 @@ $main-min-height: 90vh;
   border: 1px solid grey;
   border-radius: 10px;
 }
+
+@mixin projects-list {
+  @include flex-row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem 0;
+  gap: 3rem;
+}

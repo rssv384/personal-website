@@ -25,10 +25,10 @@
 
 #featuredProjects {
   div {
-    @include flex-row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 2rem 0;
-    gap: 3rem;
+    @include projects-list;
+    // @include flex-row;
+    // flex-wrap: wrap;
+    // justify-content: center;
+    // padding: 2rem 0; // gap: 3rem;
   }
 }

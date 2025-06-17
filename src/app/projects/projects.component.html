@@ -1,1 +1,18 @@
-<p>projects works!</p>
+<section>
+  <div class="main-container">
+    <div class="section-headings">
+      <h2>My Projects</h2>
+      <p>
+        Here's a collection of some of my personal projects, showcasing my work
+        as a software engineer. Whether it started as a fun idea or a way to
+        practice a particular technology or concept, my main goal is always to
+        <b>learn</b>.
+      </p>
+    </div>
+    <div class="projects-container">
+      @for (p of allProjects; track $index) {
+        <app-project-card [project]="p"></app-project-card>
+      }
+    </div>
+  </div>
+</section>
