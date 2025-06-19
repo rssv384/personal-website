@@ -2,9 +2,8 @@
 
 .card {
   width: 350px;
-  border: 1px solid grey;
-  border-radius: 10px;
   padding: 1rem 2rem;
+  border-radius: 10px;
 
   @include md-dev {
     width: 250px;
@@ -14,8 +13,11 @@
   width: 100%;
 
   img {
+    border: 1px solid grey;
     width: 100%;
     aspect-ratio: 5 / 3;
+    border-radius: 6px;
+    margin-bottom: 1rem;
   }
 }
 
@@ -31,9 +33,12 @@
   margin: 2rem 0;
   gap: 2rem;
 
-  a:hover {
-    font-weight: 700;
+  a {
     text-decoration: underline;
+
+    &:hover {
+      font-weight: 700;
+    }
   }
 }
 
