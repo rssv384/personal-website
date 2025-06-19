@@ -1,5 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { map } from 'rxjs';
 import { ProjectCardComponent } from './project-card/project-card.component';
+import { Project } from './project.model';
 import { ProjectsService } from './projects.service';
 
 @Component({
@@ -8,8 +10,20 @@ import { ProjectsService } from './projects.service';
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss',
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit {
   private projectsService = inject(ProjectsService);
+  private destroyRef = inject(DestroyRef);
 
-  allProjects = this.projectsService.allProjects;
+  allProjects: Project[] = [];
+
+  ngOnInit() {
+    const subscription = this.projectsService
+      .getAllProjects()
+      .subscribe((data) => {
+        this.allProjects = data;
+      });
+    this.destroyRef.onDestroy(() => {
+      subscription.unsubscribe();
+    });
+  }
 }

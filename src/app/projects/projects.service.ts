@@ -1,68 +1,43 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { collectionData, Firestore } from '@angular/fire/firestore';
+import {
+  getDownloadURL,
+  listAll,
+  ref,
+  Storage,
+  StorageReference,
+} from '@angular/fire/storage';
+import { collection, CollectionReference } from 'firebase/firestore';
+import { Observable, toArray } from 'rxjs';
 import { Project } from './project.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProjectsService {
-  private dummyProjects: Project[] = [
-    {
-      title: 'Project 1',
-      description:
-        'This is a dummy project. All data is to be used as a temporary placeholder during development.',
-      githubRepoLink: 'https://github.com',
-      liveDemoLink: '#',
-      imgSrc: 'icon.png',
-      technologies: ['Angular', 'TypeScript', 'HTML', 'SCSS'],
-      featured: true,
-    },
-    {
-      title: 'Project 2',
-      description:
-        'This is a dummy project. All data is to be used as a temporary placeholder during development.',
-      githubRepoLink: 'https://github.com',
-      liveDemoLink: '#',
-      imgSrc: 'icon.png',
-      technologies: ['Angular', 'TypeScript', 'HTML', 'SCSS'],
-      featured: true,
-    },
-    {
-      title: 'Project 3',
-      description:
-        'This is a dummy project. All data is to be used as a temporary placeholder during development.',
-      githubRepoLink: 'https://github.com',
-      liveDemoLink: '#',
-      imgSrc: 'icon.png',
-      technologies: ['Angular', 'TypeScript', 'HTML', 'SCSS'],
-      featured: false,
-    },
-    {
-      title: 'Project 4',
-      description:
-        'This is a dummy project. All data is to be used as a temporary placeholder during development.',
-      githubRepoLink: 'https://github.com',
-      liveDemoLink: '#',
-      imgSrc: 'icon.png',
-      technologies: ['Angular', 'TypeScript', 'HTML', 'SCSS'],
-      featured: false,
-    },
-    {
-      title: 'Project 5',
-      description:
-        'This is a dummy project. All data is to be used as a temporary placeholder during development.',
-      githubRepoLink: 'https://github.com',
-      liveDemoLink: '#',
-      imgSrc: 'icon.png',
-      technologies: ['Angular', 'TypeScript', 'HTML', 'SCSS'],
-      featured: true,
-    },
-  ];
+  private firestore = inject(Firestore); // Database
+  private readonly storage: Storage = inject(Storage); // Storage bucket
 
-  public get allProjects(): Project[] {
-    return this.dummyProjects;
+  private collectionName = 'projects';
+  private projectsCollection: CollectionReference;
+
+  constructor() {
+    // Get a reference to the 'projects' collection
+    this.projectsCollection = collection(this.firestore, this.collectionName);
   }
 
-  public get featuredProjects(): Project[] {
-    return this.dummyProjects.filter((project) => project.featured);
+  // handles fetching all projects data from firestore db
+  public getAllProjects(): Observable<Project[]> {
+    return collectionData(this.projectsCollection) as Observable<Project[]>;
+  }
+
+  // handles fetching only the projects where 'featured' = true
+  public getFeaturedProjects(): Observable<Project[]> {
+    return collectionData(this.projectsCollection) as Observable<Project[]>;
+  }
+
+  // handles getting the download url for a specific project image file
+  public getImageUrl(filename: string): Promise<string> {
+    return getDownloadURL(ref(this.storage, `images/${filename}`));
   }
 }

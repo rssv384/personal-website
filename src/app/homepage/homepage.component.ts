@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ProjectCardComponent } from '../projects/project-card/project-card.component';
 import { Project } from '../projects/project.model';
@@ -12,5 +12,18 @@ import { ProjectsService } from '../projects/projects.service';
 })
 export class HomepageComponent {
   private projectsService = inject(ProjectsService);
-  featuredProjects = this.projectsService.featuredProjects;
+  private destroyRef = inject(DestroyRef);
+  featuredProjects: Project[] = [];
+
+  constructor() {
+    const subscription = this.projectsService
+      .getFeaturedProjects()
+      .subscribe((data) => {
+        this.featuredProjects = data;
+      });
+
+    this.destroyRef.onDestroy(() => {
+      subscription.unsubscribe();
+    });
+  }
 }

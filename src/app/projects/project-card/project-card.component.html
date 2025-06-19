@@ -1,6 +1,6 @@
 <div class="card">
   <div class="project-img">
-    <img [src]="project().imgSrc" alt="Project preview" />
+    <img [src]="imgUrl" [alt]="project().imgSrc" loading="lazy" />
   </div>
   <h4>{{ project().title }}</h4>
   <p>
