@@ -1,5 +1,4 @@
 import { Component, DestroyRef, inject, OnInit } from '@angular/core';
-import { map } from 'rxjs';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { Project } from './project.model';
 import { ProjectsService } from './projects.service';

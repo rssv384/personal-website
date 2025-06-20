@@ -1,12 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { collectionData, Firestore } from '@angular/fire/firestore';
-import {
-  getDownloadURL,
-  listAll,
-  ref,
-  Storage,
-  StorageReference,
-} from '@angular/fire/storage';
+import { getDownloadURL, ref, Storage } from '@angular/fire/storage';
 import { collection, CollectionReference } from 'firebase/firestore';
 import { Observable, toArray } from 'rxjs';
 import { Project } from './project.model';

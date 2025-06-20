@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 import { environment } from '../../environments/environment';
 
 @Injectable()
