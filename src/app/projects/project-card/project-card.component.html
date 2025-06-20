@@ -1,7 +1,10 @@
 <div class="card">
-  <div class="project-img">
-    <img [src]="imgUrl" [alt]="project().imgSrc" loading="lazy" />
-  </div>
+  <!-- defer image rendering until the imgUrl has been fetched -->
+  @defer (when imgUrl) {
+    <div class="project-img">
+      <img [src]="imgUrl" [alt]="project().imgSrc" loading="lazy" />
+    </div>
+  }
   <h4>{{ project().title }}</h4>
   <p>
     {{ project().description }}

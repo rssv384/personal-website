@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject, input, OnInit } from '@angular/core';
+import { Component, inject, input, OnInit } from '@angular/core';
 import { Project } from '../project.model';
 import { ProjectsService } from '../projects.service';
 
@@ -10,7 +10,6 @@ import { ProjectsService } from '../projects.service';
 })
 export class ProjectCardComponent implements OnInit {
   private projectsService = inject(ProjectsService);
-  private destroyRef = inject(DestroyRef);
 
   project = input.required<Project>();
   imgUrl: string = '';
