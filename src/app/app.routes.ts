@@ -1,9 +1,5 @@
 import { Routes } from '@angular/router';
-import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { ProjectsComponent } from './projects/projects.component';
 
 export const routes: Routes = [
   {
@@ -13,21 +9,33 @@ export const routes: Routes = [
   },
   {
     path: 'about',
-    component: AboutComponent,
+    loadComponent: () =>
+      import('./about/about.component').then((mod) => mod.AboutComponent),
+    // component: AboutComponent,
     title: 'Raúl Soto | About',
   },
   {
     path: 'projects',
-    component: ProjectsComponent,
+    loadComponent: () =>
+      import('./projects/projects.component').then(
+        (mod) => mod.ProjectsComponent,
+      ),
+    // component: ProjectsComponent,
     title: 'Raúl Soto | Projects',
   },
   {
     path: 'contact',
-    component: ContactComponent,
+    loadComponent: () =>
+      import('./contact/contact.component').then((mod) => mod.ContactComponent),
+    // component: ContactComponent,
     title: 'Raúl Soto | Contact',
   },
   {
     path: '**',
-    component: NotFoundComponent,
+    loadComponent: () =>
+      import('./not-found/not-found.component').then(
+        (mod) => mod.NotFoundComponent,
+      ),
+    // component: NotFoundComponent,
   },
 ];
